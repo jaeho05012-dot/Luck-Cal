@@ -1,0 +1,38 @@
+from flask import Flask, request, jsonify, render_template
+from openai import OpenAI
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+app = Flask(__name__)
+
+client = OpenAI(
+    api_key=os.getenv("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")
+)
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+@app.route("/ask", methods=["POST"])
+def ask():
+    data = request.get_json()
+    question = data.get("question", "")
+
+    if not question:
+        return jsonify({"answer": "질문을 입력해주세요."})
+
+    response = client.responses.create(
+        model="gpt-4.1-mini",
+        input=[
+            {"role": "system", "content": "너는 친절한 AI야."},
+            {"role": "user", "content": question}
+        ]
+    )
+
+    answer = response.output_text
+    return jsonify({"answer": answer})
+
+if __name__ == "__main__":
+    app.run(debug=True)

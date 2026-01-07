@@ -1,16 +1,15 @@
 {
-  "name": "ai-food-frontend",
+  "name": "luck-cal-ai-frontend",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.1",
-  "type": "module",
   "scripts": {
-    "dev": "vite"
+    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "build": "react-scripts build"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "vite": "^5.0.0"
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
   }
 }

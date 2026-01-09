@@ -28,10 +28,7 @@ export default function App() {
   const [goal, setGoal] = useState("maintain");
 
   const analyze = async () => {
-    if (!file) {
-      alert("이미지를 선택하세요");
-      return;
-    }
+    if (!file) return alert("이미지를 선택하세요");
 
     setLoading(true);
     setResult(null);
@@ -49,16 +46,8 @@ export default function App() {
       });
 
       if (!res.ok) throw new Error("server error");
-
       const data = await res.json();
-
-      setResult({
-        food: data.food,
-        confidence: data.confidence,
-        nutrition: data.nutrition,
-        advice: data.advice
-      });
-
+      setResult(data);
     } catch {
       setResult({
         food: "양념치킨 + 콜라",
@@ -97,6 +86,7 @@ export default function App() {
         📸 음식 분석
       </h2>
 
+      {/* 성별 */}
       <div style={{ marginBottom: 20 }}>
         <div style={{ marginBottom: 8, fontWeight: 600 }}>성별</div>
         <div style={{ display: "flex", gap: 8 }}>
@@ -112,6 +102,7 @@ export default function App() {
         </div>
       </div>
 
+      {/* 나이 */}
       <div style={{ marginBottom: 20 }}>
         <div style={{ marginBottom: 8, fontWeight: 600 }}>연령대</div>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
@@ -130,6 +121,7 @@ export default function App() {
         </div>
       </div>
 
+      {/* 목표 */}
       <div style={{ marginBottom: 20 }}>
         <div style={{ marginBottom: 8, fontWeight: 600 }}>목표</div>
         <div style={{ display: "flex", gap: 8 }}>
@@ -145,6 +137,7 @@ export default function App() {
         </div>
       </div>
 
+      {/* 이미지 */}
       <input
         type="file"
         accept="image/*"
@@ -192,10 +185,10 @@ export default function App() {
 
           <p style={{ fontSize: 12, color: "#666", marginTop: 12 }}>
             이 분석은 참고용으로 제공되며,
-            일상적인 건강 관리를 돕기 위한 정보입니다 🙂
+            일상적인 건강 관리를 부드럽게 돕기 위한 정보입니다 🙂
           </p>
         </div>
       )}
     </div>
   );
-}
+} 

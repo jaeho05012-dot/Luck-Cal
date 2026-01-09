@@ -1,25 +1,27 @@
 {
-  "name": "Luck-Cal-AI",
+  "name": "luck-cal-ai-frontend",
   "version": "1.0.0",
-  "description": "중2용 AI 베타 앱",
-  "main": "index.js",
-  "scripts": {
-    "dev": "preact watch",
-    "build": "preact build",
-    "start": "preact serve build"
-  },
+  "private": true,
   "dependencies": {
-    "preact": "^10.14.1",
-    "preact-router": "^3.2.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
   },
-  "keywords": [
-    "preact",
-    "ai",
-    "beta"
-  ],
-  "author": "YourName",
-  "license": "MIT",
-  "devDependencies": {
-    "preact-cli": "^3.5.1"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
